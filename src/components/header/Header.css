@@ -1,0 +1,35 @@
+.navbar-light .navbar-brand {
+    color: #F45050;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.s-header,
+.s-header .navbar {
+    background-color: #F2F2F2;
+    font-weight: 700;
+}
+
+.s-header .navbar-light .navbar-nav .active>.nav-link,
+.s-header .navbar-light .navbar-nav .nav-link.active,
+.s-header .navbar-light .navbar-nav .nav-link.show,
+.s-header .navbar-light .navbar-nav .show>.nav-link,
+.s-header .navbar-light .navbar-nav .nav-link {
+    color: #F45050;
+}
+
+header .navbar-light .navbar-nav .nav-link,
+.navitem a:focus {
+    font-size: 1.2em;
+}
+
+.s-header .s-item-menu
+{
+    padding-top: 20px;
+    padding-left: 50px;
+}

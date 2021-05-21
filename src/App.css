@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+@media (min-width: 1400px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1320px;
+    }
+}
+
+body {
+    background-color: #F9F9F9;
+    color: #F45050;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.navitem a:focus {
+    color: #F45050;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #F45050;
+    text-decoration: underline;
+}
+
+.s-title {
+    font-size: 2em;
+}
+
+.s-title:hover,
+h3 {
+    color: #F45050 !important;
+}
+
+.s-btn-primary {
+    background-color: white !important;
+    color: #F45050 !important;
+    border-color: #F45050 !important;
+}
+
+.s-container-header {
+    padding: 0px;
+}
+
+.s-header {
+    border-bottom: 1px solid #ced4da;
+}
+
+.s-block {
+    margin-top: 50px;
+}
+
+.s-form-content {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 50px;
+    padding-bottom: 40px;
+    width: 720px;
+}
+
+.form-control:focus {
+    border-color: #F45050 !important;
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+}
+
+.s-form-row {
+    margin-top: 20px;
+}
+
+.s-form-submit-row {
+    margin-top: 30px;
+}
