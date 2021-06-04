@@ -4,42 +4,47 @@ import dataValue from './Data';
 import { useState, useEffect } from 'react';
 import Header from './components/header/Header';
 import InputText from './components/input-text/InputText';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
+import LandingPage from './features/landing/landing-page/landing-page';
+import CrmPage from './features/crm/crm-page/crm-page';
 
 function App() {
-
-  const [isToggle, setIsToggle] = useState(false);
-  const toggleMenu = e => {
-    setIsToggle(!isToggle);
-    console.log("coucou");
-  }
-
-  useEffect(() => {
-
-  });
-  const show = isToggle ? "show" : "";
-
   return (
-    <div className="App">
-      <Header />
-      <div className="container">
-        <div className="s-block">
-          <h3>Bonjour, que pouvons-nous faire pour vous ?</h3>
-        </div>
-        <div className="s-block">
-          <form className="s-form-content">
-            <InputText title="Nom" />
-            <InputText title="Prénom" />
-            <div className="form-group row s-form-row s-form-submit-row">
-              <label className="col-sm-2 col-form-label"></label>
-              <div className="col-sm-10">
-                <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Précedent</button>
-                <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Etape suivante</button>
-              </div>
-            </div>
-          </form>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Header headerType="landing" title="Landing" />
+          </Route>
+          <Route path="/landing">
+            <Header headerType="landing" title="Landing" />
+          </Route>
+          <Route path="/crm">
+            <Header headerType="crm" title="Crm" />
+          </Route>
+        </Switch>
+        <div className="container">
+          <Switch>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route path="/landing">
+              <LandingPage />
+            </Route>
+            <Route path="/crm">
+              <CrmPage />
+            </Route>
+          </Switch>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
