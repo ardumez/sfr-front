@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import telephoneFormReducer from './features/landing/telephone-form/telephone-form-slice';
+import telephoneFormReducer from './landing/telephoneForm/TelephoneFormSlice';
 
 export default configureStore({
   reducer: {

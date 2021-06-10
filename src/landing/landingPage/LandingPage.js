@@ -1,4 +1,4 @@
-import TelephoneForm from '../telephone-form/telephone-form';
+import TelephoneForm from '../telephoneForm/TelephoneForm';
 
 function LandingPage() {
   return (

@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import dataValue from './Data';
 import { useState, useEffect } from 'react';
-import Header from './components/header/Header';
-import InputText from './components/input-text/InputText';
+import Header from './components/Header';
+import InputText from './components/InputText';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,8 +12,8 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
-import LandingPage from './features/landing/landing-page/landing-page';
-import CrmPage from './features/crm/crm-page/crm-page';
+import LandingPage from './landing/landingPage/LandingPage';
+import CrmPage from './crm/crm-page/crm-page';
 
 function App() {
   return (

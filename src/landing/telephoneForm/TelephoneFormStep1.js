@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputText from '../../../components/input-text/InputText';
+import InputText from '../../components/InputText';
 
 function TelephoneFormStep1({ onStep1Submit = f => f }) {
   const [nom, setNom] = useState("");

@@ -6,7 +6,8 @@ export const slice = createSlice({
     currentStep: 'step1',
     step1: {
       nom: null,
-      prenom: null
+      prenom: null,
+      step1Id: null
     },
     step2: {
       solutionId: null,
@@ -26,9 +27,13 @@ export const { doStep1 } = slice.actions;
 
 export const doStep1Async = step1FormData => dispatch => {
   console.log("put data");
-  fetch("http://localhost:3000/telephone/do-step-1", {
+  fetch("http://localhost:3000/telephone-projets", {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
     method: "POST",
-    body: JSON.stringify(step1FormData)
+    body: JSON.stringify(step1FormData),
   }).then(step1Data => {
     dispatch(doStep1(step1Data));
   }).catch(err => {
