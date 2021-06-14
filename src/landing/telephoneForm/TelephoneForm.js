@@ -7,7 +7,7 @@ function TelephoneForm() {
   return (
     <>
       <div className="s-block">
-        <h3>Bonjour, obtenez un devis <b>téléphone</b>,<br /> en répondant a ces quelques questions !</h3>
+        <h3 className="s-page-title">Bonjour, obtenez un devis <b>téléphone</b>,<br /> en répondant a ces quelques questions !</h3>
       </div>
       <div className="s-block">
         <div className="sfr-card d-flex justify-content-center">

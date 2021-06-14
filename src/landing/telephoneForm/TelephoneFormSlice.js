@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { createTelephoneProjet } from './TelephoneFormAPI';
 
 export const slice = createSlice({
   name: 'subscription',
@@ -19,6 +20,7 @@ export const slice = createSlice({
     doStep1: (state, action) => {
       state.step1.nom = action.payload.nom;
       state.step1.prenom = action.payload.prenom;
+      state.currentStep = "step2";
     },
   },
 });
@@ -27,18 +29,12 @@ export const { doStep1 } = slice.actions;
 
 export const doStep1Async = step1FormData => dispatch => {
   console.log("put data");
-  fetch("http://localhost:3000/telephone-projets", {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify(step1FormData),
-  }).then(step1Data => {
-    dispatch(doStep1(step1Data));
-  }).catch(err => {
-    console.log(err);
-  })
+  createTelephoneProjet(step1FormData)
+    .then(step1Data => {
+      dispatch(doStep1(step1Data.data));
+    }).catch(err => {
+      console.log(err);
+    })
 };
 
 // The function below is called a selector and allows us to select a value from

@@ -1,8 +1,8 @@
 function InputText({ title, onChange = f => f }) {
   return (
     <div className="form-group row s-form-row">
-      <label className="col-sm-2 col-form-label">{title}</label>
-      <div className="col-sm-10">
+      <label className="col-sm-4 col-form-label">{title}</label>
+      <div className="col-sm-8">
         <input
           type="text"
           className="form-control"

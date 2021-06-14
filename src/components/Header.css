@@ -1,5 +1,6 @@
 .navbar-light .navbar-brand {
     color: #F45050;
+    padding-left: 15px;
 }
 
 .navbar-toggler:focus,
@@ -15,12 +16,17 @@
     font-weight: 700;
 }
 
+.s-header {
+    border-bottom: 15px solid #F45050;
+}
+
 .s-header .navbar-light .navbar-nav .active>.nav-link,
 .s-header .navbar-light .navbar-nav .nav-link.active,
 .s-header .navbar-light .navbar-nav .nav-link.show,
 .s-header .navbar-light .navbar-nav .show>.nav-link,
 .s-header .navbar-light .navbar-nav .nav-link {
     color: #F45050;
+    padding-left: 40px;
 }
 
 header .navbar-light .navbar-nav .nav-link,
@@ -28,8 +34,7 @@ header .navbar-light .navbar-nav .nav-link,
     font-size: 1.2em;
 }
 
-.s-header .s-item-menu
-{
+.s-header .s-item-menu {
     padding-top: 20px;
     padding-left: 50px;
 }

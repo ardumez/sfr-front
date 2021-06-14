@@ -15,7 +15,21 @@ function TelephoneFormStep1({ onStep1Submit = f => f }) {
   };
   return (
     <form className="s-form-content" onSubmit={submit}>
+      <p>
+        Le secteur de la téléphonie réunit un important nombre d’acteurs. Parmi eux, les opérateurs sont sans doute ceux qui intéressent le plus les consommateurs. Avec une multitude d’offres mobiles et des promotions toujours plus attractives, les usagers ont effectivement de quoi être séduits.
+        <br />
+        <br />
+      </p>
       <InputText title="Nom" onChange={setNom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
+      <InputText title="Prénom" onChange={setPrenom} />
       <InputText title="Prénom" onChange={setPrenom} />
       <div className="form-group row s-form-row s-form-submit-row">
         <label className="col-sm-2 col-form-label"></label>

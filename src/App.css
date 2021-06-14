@@ -67,20 +67,18 @@ h3 {
 
 .sfr-card {
     background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: 10px;
-
+    border-radius: 5px;
 }
 
 .sfr-card-header {
     font-weight: 700;
     padding: 10px;
-    border-bottom: 1px solid #ced4da;
 }
 
 .sfr-card-content {
     padding: 30px;
     padding-bottom: 40px;
+    font-weight: bold;
 }
 
 .sfr-table-card {
@@ -102,4 +100,9 @@ h3 {
 
 .s-form-submit-row {
     margin-top: 30px;
+}
+
+.s-page-title {
+    padding-bottom: 5px;
+    color: #D18325 !important;
 }
