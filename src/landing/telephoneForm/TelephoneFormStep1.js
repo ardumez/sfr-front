@@ -1,44 +1,51 @@
 import React, { useState } from "react";
 import InputText from '../../components/InputText';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
-function TelephoneFormStep1({ onStep1Submit = f => f }) {
-  const [nom, setNom] = useState("");
-  const [prenom, setPrenom] = useState("");
+const telephoneFormStep1Schema = Yup.object().shape({
+  nom: Yup.string()
+    .min(2, 'Taille min de 2')
+    .max(50, 'Taille max de 50')
+    .required('Obligatoire'),
+  prenom: Yup.string()
+    .min(2, 'Taille min de 2')
+    .max(50, 'Taille max de 50')
+    .required('Obligatoire'),
+});
 
-  const submit = e => {
-    e.preventDefault();
-    console.log("coucou");
-    onStep1Submit({
-      nom: nom,
-      prenom: prenom
-    });
-  };
+function TelephoneFormStep1({ onStepSubmit = f => f }) {
+  const onSubmit = values => {
+    console.log(values);
+    onStepSubmit({ nom: values.nom, prenom: values.prenom });
+  }
   return (
-    <form className="s-form-content" onSubmit={submit}>
-      <p>
-        Le secteur de la téléphonie réunit un important nombre d’acteurs. Parmi eux, les opérateurs sont sans doute ceux qui intéressent le plus les consommateurs. Avec une multitude d’offres mobiles et des promotions toujours plus attractives, les usagers ont effectivement de quoi être séduits.
-        <br />
-        <br />
-      </p>
-      <InputText title="Nom" onChange={setNom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <InputText title="Prénom" onChange={setPrenom} />
-      <div className="form-group row s-form-row s-form-submit-row">
-        <label className="col-sm-2 col-form-label"></label>
-        <div className="col-sm-10">
-          <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Précedent</button>
-          <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Etape suivante</button>
-        </div>
-      </div>
-    </form>
+    <Formik
+      initialValues={{
+        nom: '',
+        prenom: '',
+      }}
+      validationSchema={telephoneFormStep1Schema}
+      onSubmit={onSubmit}>
+      {({ errors, touched }) => (
+        <Form className="s-form-content">
+          <p>
+            En répondant a ces quelques questions vous pourrez changer de forfait mobile de façon rapide et facile
+            <br />
+            <br />
+          </p>
+          <InputText label="Nom" name="nom" touched={touched} errors={errors} />
+          <InputText label="Prénom" name="prenom" touched={touched} errors={errors} />
+          <div className="form-group row s-form-row s-form-submit-row">
+            <label className="col-sm-2 col-form-label"></label>
+            <div className="col-sm-10">
+              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Précedent</button>
+              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Etape suivante</button>
+            </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 }
 

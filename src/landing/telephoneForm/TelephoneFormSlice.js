@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createTelephoneProjet } from './TelephoneFormAPI';
 
 export const slice = createSlice({
-  name: 'subscription',
+  name: 'coucou',
   initialState: {
-    currentStep: 'step1',
+    currentStep: 1,
     step1: {
       nom: null,
       prenom: null,
@@ -20,7 +20,7 @@ export const slice = createSlice({
     doStep1: (state, action) => {
       state.step1.nom = action.payload.nom;
       state.step1.prenom = action.payload.prenom;
-      state.currentStep = "step2";
+      state.currentStep = 2;
     },
   },
 });

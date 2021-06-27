@@ -1,15 +1,17 @@
-function InputText({ title, onChange = f => f }) {
+import { Field } from 'formik';
+import './InputText.css';
+
+function InputText({ label, name, touched, errors }) {
   return (
     <div className="form-group row s-form-row">
-      <label className="col-sm-4 col-form-label">{title}</label>
-      <div className="col-sm-8">
-        <input
+      <label className="col-sm-3 col-form-label">{label}</label>
+      <div className="col-sm-9">
+        <Field
+          name={name}
           type="text"
-          className="form-control"
-          id="inputPassword"
-          autoComplete="off"
-          onChange={event => onChange(event.target.value)}
-        />
+          className="sfr-form-control form-control"
+          autoComplete="off" />
+        {touched[name] && errors[name] && <div><i class="sfr-error-form">{errors[name]}</i></div>}
       </div>
     </div>
   );

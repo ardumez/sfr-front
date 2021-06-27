@@ -37,10 +37,10 @@ function Header({ title, headerType }) {
                 {headerType == "landing" &&
                   <>
                     <li className="nav-item active">
-                      <Link className="nav-link s-item-menu" to="/landing/telephone">Téléphone</Link>
+                      <Link className="nav-link s-item-menu" to="/landing/telephone">Forfait mobile</Link>
                     </li>
                     <li className="nav-item active">
-                      <Link className="nav-link s-item-menu" to="/landing/electricite">Electricité</Link>
+                      <Link className="nav-link s-item-menu" to="/landing/electricite">Électricité</Link>
                     </li>
                   </>
                 }

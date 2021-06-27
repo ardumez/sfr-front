@@ -18,7 +18,7 @@ import CrmPage from './crm/crm-page/crm-page';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App s-app">
         <Switch>
           <Route exact path="/">
             <Header headerType="landing" title="Landing" />
@@ -43,6 +43,13 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <diV className="container">
+          <div className="container">
+            <footer className="s-footer container">
+              <p>Tous droit réservé. 2021</p>
+            </footer>
+          </div>
+        </diV>
       </div>
     </Router>
   );

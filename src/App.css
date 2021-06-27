@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: #F9F9F9;
+    background-color: white;
     color: #F45050;
     font-family: 'Roboto', sans-serif;
 }
@@ -44,17 +44,32 @@ h3 {
 }
 
 .s-btn-primary {
-    background-color: white !important;
-    color: #F45050 !important;
+    background-color: #F45050 !important;
+    color: white !important;
     border-color: #F45050 !important;
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
 }
 
 .s-container-header {
     padding: 0px;
 }
 
+
 .s-header {
     border-bottom: 1px solid #ced4da;
+}
+
+.s-footer {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #F45050;
+    margin-top: 100px;
+    color: white;
+    height: 100px;
+}
+
+.s-footer h3 {
+    color: white;
 }
 
 .s-block {
@@ -68,6 +83,7 @@ h3 {
 .sfr-card {
     background-color: white;
     border-radius: 5px;
+    border: 4px solid #F45050;
 }
 
 .sfr-card-header {
@@ -90,8 +106,8 @@ h3 {
 }
 
 .form-control:focus {
-    border-color: #F45050 !important;
-    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+    /*  border-color: #F45050 !important;
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);*/
 }
 
 .s-form-row {
@@ -103,6 +119,18 @@ h3 {
 }
 
 .s-page-title {
+    padding: 10px;
     padding-bottom: 5px;
-    color: #D18325 !important;
+    color: white !important;
+    border-radius: 10px;
+
+    border: 5px solid #F45050;
+    background-color: #F45050;
+}
+
+
+.btn:active:focus,
+.btn:focus {
+    /*   box-shadow: 0 0 0 0.25rem rgb(255 156 156 / 50%);
+*/
 }

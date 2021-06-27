@@ -1,5 +1,5 @@
 import http from '../../tools/http';
 
-const PREFIX = '/telephones-projets';
+const PREFIX = '/projet-telephone';
 
-export const createTelephoneProjet = (params) => http.post(PREFIX, params);
+export const createTelephoneProjet = (params) => http.post(PREFIX + "/step1", params);
