@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputText from '../../components/InputText';
 import Dropdown from '../../components/Dropdown';
 import { Formik, Form, Field } from 'formik';
@@ -7,25 +7,44 @@ import * as Yup from 'yup';
 const telephoneFormStep1Schema = Yup.object().shape({
   operateurCode: Yup.string()
     .required('Obligatoire'),
-  smsIlimite: Yup.boolean()
+  smsCode: Yup.boolean()
     .required('Obligatoire'),
-  appelIlimite: Yup.boolean()
+  internetCode: Yup.boolean()
     .required('Obligatoire'),
 });
 
 function TelephoneFormStep2({ onStepSubmit = f => f }) {
 
-  const dropdownOptions = [
+  useEffect(() => {
+
+  });
+  const dropdownOperateursOptions = [
     { key: '', value: 'Choisir un operateur' },
     { key: 'ORANGE', value: 'Orange' },
-    { key: 'SFR', value: 'Sfr' },
+    { key: 'SFR', value: 'SFR' },
     { key: 'BOUYGUES', value: 'Bouygues' }
-  ]
+  ];
+  const dropdownDureeAppelsOptions = [
+    { key: '', value: 'Choisir une durée d\'appels' },
+    { key: 'APPELS_2H', value: '2h d\'appels' },
+    { key: 'APPEL_ILIMITE', value: 'Ilimité' },
+  ];
+  const dropdownSmsOptions = [
+    { key: '', value: 'Choisir une option d\'SMS' },
+    { key: 'SMS_ILIMITE', value: 'Ilimité' },
+  ];
+  const dropdownInternetOptions = [
+    { key: '', value: 'Choisir une option internet' },
+    { key: 'INTERNET_5GO', value: '5Go' },
+    { key: 'INTERNET_10GO', value: '10Go' },
+  ];
   return (
     <Formik
       initialValues={{
-        nom: '',
-        prenom: '',
+        operateurCode: '',
+        dureeAppelCode: '',
+        smsCode: '',
+
       }}
       validationSchema={telephoneFormStep1Schema}
       onSubmit={onStepSubmit}>
@@ -36,22 +55,15 @@ function TelephoneFormStep2({ onStepSubmit = f => f }) {
             <br />
             <br />
           </p>
-
-          <Field as="select" name="operateur">
-            <option value="orange">Orange</option>
-            <option value="green">Sfr</option>
-            <option value="blue">Bouygues</option>
-          </Field>
-          <Dropdown label="Operateur" name="operateurCode" options={dropdownOptions} touched={touched} errors={errors} />
-          <InputText label="Operateur" name="nom" touched={touched} errors={errors} />
-          <InputText label="SMS Ilimité" name="prenom" touched={touched} errors={errors} />
-          <InputText label="Appel Ilimité" name="prenom" touched={touched} errors={errors} />
-          <InputText label="Internet" name="prenom" touched={touched} errors={errors} />
+          <Dropdown label="Operateur" name="operateurCode" options={dropdownOperateursOptions} touched={touched} errors={errors} />
+          <Dropdown label="Durée d'appels" name="dureeAppelCode" options={dropdownDureeAppelsOptions} touched={touched} errors={errors} />
+          <Dropdown label="SMS" name="smsCode" options={dropdownSmsOptions} touched={touched} errors={errors} />
+          <Dropdown label="Internet" name="internetCode" options={dropdownInternetOptions} touched={touched} errors={errors} />
           <div className="form-group row s-form-row s-form-submit-row">
             <label className="col-sm-2 col-form-label"></label>
             <div className="col-sm-10">
-              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Précedent</button>
-              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Etape suivante</button>
+              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Mon profile</button>
+              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Voir les offres</button>
             </div>
           </div>
         </Form>

@@ -105,11 +105,6 @@ h3 {
     border-bottom-width: 0px !important;
 }
 
-.form-control:focus {
-    /*  border-color: #F45050 !important;
-    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);*/
-}
-
 .s-form-row {
     margin-top: 20px;
 }
@@ -123,14 +118,6 @@ h3 {
     padding-bottom: 5px;
     color: white !important;
     border-radius: 10px;
-
     border: 5px solid #F45050;
     background-color: #F45050;
-}
-
-
-.btn:active:focus,
-.btn:focus {
-    /*   box-shadow: 0 0 0 0.25rem rgb(255 156 156 / 50%);
-*/
 }

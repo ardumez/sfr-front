@@ -1,9 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createTelephoneProjet } from './TelephoneFormAPI';
+import operateurApi from '../../Api/OperateurAPI';
+
+const fetchAllOperateur = createAsyncThunk(
+  'telephoneForm/fetchAllOperateur',
+  async (userId, thunkAPI) => {
+    const response = await userAPI.fetchById(userId)
+    return response.data
+  }
+)
 
 export const slice = createSlice({
-  name: 'coucou',
+  name: 'telephoneForm',
   initialState: {
+    operateurs: [],
     currentStep: 1,
     step1: {
       nom: null,
@@ -22,24 +32,35 @@ export const slice = createSlice({
       state.step1.prenom = action.payload.prenom;
       state.currentStep = 2;
     },
+    doStep2: (state, action) => {
+
+    },
+    addOperateurs: (state, action) => {
+      state.operateurs = action.payload.operateurs;
+    }
   },
 });
 
 export const { doStep1 } = slice.actions;
 
-export const doStep1Async = step1FormData => dispatch => {
+export const doStep1Async = (step1FormData) => (dispatch) => {
   console.log("put data");
   createTelephoneProjet(step1FormData)
     .then(step1Data => {
       dispatch(doStep1(step1Data.data));
     }).catch(err => {
       console.log(err);
-    })
+    });
 };
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state) => state.counter.value)`
+export const getOperateursAsync = () => (dispatch) => {
+  operateurApi.fetchOperateurs()
+    .then(data => {
+
+    });
+};
+
+
 export const selectCount = state => state.counter.value;
 
 export default slice.reducer;

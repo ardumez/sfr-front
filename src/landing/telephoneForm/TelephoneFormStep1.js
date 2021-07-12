@@ -16,8 +16,7 @@ const telephoneFormStep1Schema = Yup.object().shape({
 
 function TelephoneFormStep1({ onStepSubmit = f => f }) {
   const onSubmit = values => {
-    console.log(values);
-    onStepSubmit({ nom: values.nom, prenom: values.prenom });
+    onStepSubmit({ ...values });
   }
   return (
     <Formik
@@ -39,8 +38,7 @@ function TelephoneFormStep1({ onStepSubmit = f => f }) {
           <div className="form-group row s-form-row s-form-submit-row">
             <label className="col-sm-2 col-form-label"></label>
             <div className="col-sm-10">
-              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Précedent</button>
-              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Etape suivante</button>
+              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Définir mes options</button>
             </div>
           </div>
         </Form>
