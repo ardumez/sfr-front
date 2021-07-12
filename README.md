@@ -1,3 +1,6 @@
+
+React application with redux and express backend.
+
 | Repositories | Code |
 | ------ | ------ |
 | sfr-front | [https://github.com/ardumez/sfr-front](https://github.com/ardumez/sfr-front) |
