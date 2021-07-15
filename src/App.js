@@ -43,13 +43,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <div className="container">
-          <div className="container">
-            <footer className="s-footer container">
-              <p>Tous droit réservé. 2021</p>
-            </footer>
-          </div>
-        </div>
       </div>
     </Router>
   );

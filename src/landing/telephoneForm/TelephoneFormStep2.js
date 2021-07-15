@@ -13,17 +13,13 @@ const telephoneFormStep1Schema = Yup.object().shape({
     .required('Obligatoire'),
 });
 
-function TelephoneFormStep2({ onStepSubmit = f => f }) {
-
-  useEffect(() => {
-
+function TelephoneFormStep2({ onStepSubmit = f => f, operateurs }) {
+  const dropdownOperateursOptions = operateurs.map((a) => {
+    var obj = {};
+    obj.key = a.code;
+    obj.value = a.label;
+    return obj;
   });
-  const dropdownOperateursOptions = [
-    { key: '', value: 'Choisir un operateur' },
-    { key: 'ORANGE', value: 'Orange' },
-    { key: 'SFR', value: 'SFR' },
-    { key: 'BOUYGUES', value: 'Bouygues' }
-  ];
   const dropdownDureeAppelsOptions = [
     { key: '', value: 'Choisir une durée d\'appels' },
     { key: 'APPELS_2H', value: '2h d\'appels' },
@@ -43,12 +39,11 @@ function TelephoneFormStep2({ onStepSubmit = f => f }) {
       initialValues={{
         operateurCode: '',
         dureeAppelCode: '',
-        smsCode: '',
-
+        smsCode: ''
       }}
       validationSchema={telephoneFormStep1Schema}
       onSubmit={onStepSubmit}>
-      {({ errors, touched }) => (
+      {({ values, errors, touched }) => (
         <Form className="s-form-content">
           <p>
             Vous pouvez décrire votre forfait actuelle.
@@ -56,9 +51,13 @@ function TelephoneFormStep2({ onStepSubmit = f => f }) {
             <br />
           </p>
           <Dropdown label="Operateur" name="operateurCode" options={dropdownOperateursOptions} touched={touched} errors={errors} />
-          <Dropdown label="Durée d'appels" name="dureeAppelCode" options={dropdownDureeAppelsOptions} touched={touched} errors={errors} />
-          <Dropdown label="SMS" name="smsCode" options={dropdownSmsOptions} touched={touched} errors={errors} />
-          <Dropdown label="Internet" name="internetCode" options={dropdownInternetOptions} touched={touched} errors={errors} />
+          {values.operateurCode &&
+            <>
+              <Dropdown label="Durée d'appels" name="dureeAppelCode" options={dropdownDureeAppelsOptions} touched={touched} errors={errors} />
+              <Dropdown label="SMS" name="smsCode" options={dropdownSmsOptions} touched={touched} errors={errors} />
+              <Dropdown label="Internet" name="internetCode" options={dropdownInternetOptions} touched={touched} errors={errors} />
+            </>
+          }
           <div className="form-group row s-form-row s-form-submit-row">
             <label className="col-sm-2 col-form-label"></label>
             <div className="col-sm-10">

@@ -4,6 +4,8 @@ const PREFIX = '/operateur';
 
 const fetchOperateurs = (params) => http.get(PREFIX + "/all");
 
-export default {
+const operateurAPI = {
   fetchOperateurs
 };
+
+export default operateurAPI;

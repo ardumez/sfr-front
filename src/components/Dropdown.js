@@ -6,6 +6,7 @@ function Dropdown({ label, name, options, touched, errors }) {
       <label className="col-sm-3 col-form-label">{label}</label>
       <div className="col-sm-9">
         <Field as="select" name={name} className="sfr-form-control form-select">
+          <option key='' value=''>Choisir une valeur</option>
           {options.map((option) => {
             return (
               <option key={option.key} value={option.value}>
@@ -14,7 +15,7 @@ function Dropdown({ label, name, options, touched, errors }) {
             );
           })}
         </Field>
-        {touched[name] && errors[name] && <div><i class="sfr-error-form">{errors[name]}</i></div>}
+        {touched[name] && errors[name] && <div><i className="sfr-error-form">{errors[name]}</i></div>}
       </div>
     </div>
   );

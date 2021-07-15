@@ -1,15 +1,15 @@
-## Repositories
+Service de comparateur, souscription et prélèvement comptable d'abonnement.
 
-| Features | Code |
-| ------ | ------ |
-| sfr-front | [https://github.com/ardumez/sfr-front](https://github.com/ardumez/sfr-front) |
-| sfr-back | [https://github.com/ardumez/sfr-back](https://github.com/ardumez/sfr-back)|
+## Microservices
 
-## Tools
+Le service a besoin d'une application frontend et d'une application backend.
 
-| Features | Tools |
-| ------ | ------ |
-| Front | React, Redux, Formik, Redux-Toolkit |
-| Back | Express, Sequilize, Mongoose |
-| Database | Postgres, MongoDb |
-| Auth | Keycloak |
+- [Frontend](https://github.com/ardumez/sfr-front): Affichage du site web, des formulaires et du crm
+- [Backend](https://github.com/ardumez/sfr-back): Gestion des bases de données et processus métier
+
+## Dépendences
+
+Le service utilise plusieurs framework javascripts.
+
+- [Express](https://github.com/expressjs/express): Fast, unopinionated, minimalist web framework for node.
+- [React](https://github.com/facebook/react): A declarative, efficient, and flexible javaScript library for building user interfaces.

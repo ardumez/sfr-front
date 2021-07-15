@@ -1,12 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { createTelephoneProjet } from './TelephoneFormAPI';
 import operateurApi from '../../Api/OperateurAPI';
+import projetTelephoneAPI from '../../Api/ProjetTelephoneAPI';
 
-const fetchAllOperateur = createAsyncThunk(
+export const fetchAllOperateur = createAsyncThunk(
   'telephoneForm/fetchAllOperateur',
-  async (userId, thunkAPI) => {
-    const response = await userAPI.fetchById(userId)
-    return response.data
+  async () => {
+    const response = await operateurApi.fetchOperateurs();
+    return response.data;
+  }
+)
+
+export const doStep1 = createAsyncThunk(
+  'telephoneForm/doStep1',
+  async (step1FormData) => {
+    const response = await projetTelephoneAPI.doStep1(step1FormData);
+    return response.data;
   }
 )
 
@@ -23,25 +32,22 @@ export const slice = createSlice({
     step2: {
       solutionId: null,
       debutDate: null
+
     },
+    route: '',
     projetsClient: []
   },
-  reducers: {
-    doStep1: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllOperateur.fulfilled, (state, action) => {
+      state.operateurs = action.payload;
+    });
+    builder.addCase(doStep1.fulfilled, (state, action) => {
       state.step1.nom = action.payload.nom;
       state.step1.prenom = action.payload.prenom;
       state.currentStep = 2;
-    },
-    doStep2: (state, action) => {
-
-    },
-    addOperateurs: (state, action) => {
-      state.operateurs = action.payload.operateurs;
-    }
-  },
+    });
+  }
 });
-
-export const { doStep1 } = slice.actions;
 
 export const doStep1Async = (step1FormData) => (dispatch) => {
   console.log("put data");
