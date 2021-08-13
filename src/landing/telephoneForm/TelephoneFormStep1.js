@@ -14,15 +14,15 @@ const telephoneFormStep1Schema = Yup.object().shape({
     .required('Obligatoire'),
 });
 
-function TelephoneFormStep1({ onStepSubmit = f => f }) {
+function TelephoneFormStep1({ onStepSubmit = f => f, defaultValue }) {
   const onSubmit = values => {
     onStepSubmit({ ...values });
   }
   return (
     <Formik
       initialValues={{
-        nom: '',
-        prenom: '',
+        nom: defaultValue?.nom || '',
+        prenom: defaultValue?.prenom || '',
       }}
       validationSchema={telephoneFormStep1Schema}
       onSubmit={onSubmit}>

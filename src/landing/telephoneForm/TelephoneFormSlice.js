@@ -24,15 +24,10 @@ export const slice = createSlice({
   initialState: {
     operateurs: [],
     currentStep: 1,
-    step1: {
-      nom: null,
-      prenom: null,
-      step1Id: null
-    },
+    step1: null,
     step2: {
       solutionId: null,
       debutDate: null
-
     },
     route: '',
     projetsClient: []
@@ -42,8 +37,7 @@ export const slice = createSlice({
       state.operateurs = action.payload;
     });
     builder.addCase(doStep1.fulfilled, (state, action) => {
-      state.step1.nom = action.payload.nom;
-      state.step1.prenom = action.payload.prenom;
+      state.step1 = action.payload;
       state.currentStep = 2;
     });
   }

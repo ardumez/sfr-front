@@ -3,22 +3,29 @@ import TelephoneFormStep2 from './TelephoneFormStep2';
 import { doStep1, fetchAllOperateur } from './TelephoneFormSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
-function TelephoneForm() {
+import { Switch, Route, useRouteMatch, useParams, useHistory, useLocation } from "react-router-dom";
+function TelephoneForm({ parentPath }) {
   const dispatch = useDispatch();
-  const currentStep = useSelector(state => state.telephoneForm.currentStep);
+  const history = useHistory();
+  const match = useRouteMatch();
+  const matchChild = useRouteMatch(`${match.url}/:currentStep`);
+  const { currentStep } = matchChild.params;
   const operateurs = useSelector(state => state.telephoneForm.operateurs);
+  const step1 = useSelector(state => state.telephoneForm.step1);
+
   const onSubmitStep1 = (data) => {
     dispatch(doStep1(data)).then(() => {
-      console.log("do redirect");
+      history.push('./2');
     });
   };
+
   useEffect(() => {
     console.log("coucou");
     dispatch(fetchAllOperateur()).then(() => {
       console.log(operateurs);
     });
   }, []);
+
   return (
     <>
       <div className="s-block">
@@ -29,12 +36,14 @@ function TelephoneForm() {
         <div className="sfr-card d-flex justify-content-center">
           <div className="sfr-card-content">
             <h3>Étape {currentStep} / 3</h3>
-            {currentStep == 1 &&
-              <TelephoneFormStep1 onStepSubmit={onSubmitStep1} />
-            }
-            {currentStep == 2 &&
-              <TelephoneFormStep2 onStepSubmit={onSubmitStep1} operateurs={operateurs} />
-            }
+            <Switch>
+              <Route path={`${match.url}/1`}>
+                <TelephoneFormStep1 onStepSubmit={onSubmitStep1} defaultValue={step1} />
+              </Route>
+              <Route path={`${match.url}/2`}>
+                <TelephoneFormStep2 onStepSubmit={onSubmitStep1} operateurs={operateurs} />
+              </Route>
+            </Switch>
           </div>
         </div>
       </div>

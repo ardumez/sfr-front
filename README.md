@@ -1,15 +1,18 @@
-Service de comparateur, souscription et prélèvement comptable d'abonnement.
+Comparateur, souscription et prélèvement.
+
+![Build](https://travis-ci.com/ardumez/sfr-depends.svg?branch=main)
 
 ## Microservices
 
-Le service a besoin d'une application frontend et d'une application backend.
-
-- [Frontend](https://github.com/ardumez/sfr-front): Affichage du site web, des formulaires et du crm
-- [Backend](https://github.com/ardumez/sfr-back): Gestion des bases de données et processus métier
+- [Frontend:](https://github.com/ardumez/sfr-front) Site web, formulaires et crm
+- [Backend:](https://github.com/ardumez/sfr-back) Accès bases de données et processus métier
+- [Depends:](https://github.com/ardumez/sfr-back) Déploiement des images tiers
 
 ## Dépendences
 
-Le service utilise plusieurs framework javascripts.
+- [Express:](https://github.com/expressjs/express) Fast, unopinionated, minimalist web framework for node.
+- [React:](https://github.com/facebook/react) A declarative, efficient, and flexible javaScript library for building user interfaces.
 
-- [Express](https://github.com/expressjs/express): Fast, unopinionated, minimalist web framework for node.
-- [React](https://github.com/facebook/react): A declarative, efficient, and flexible javaScript library for building user interfaces.
+## Containers
+
+- [Postgres:](https://hub.docker.com/_/postgres) The PostgreSQL object-relational database system provides reliability and data integrity.
