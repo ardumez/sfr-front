@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import InputText from '../../components/InputText';
+import InputText from '../../Components/InputText';
+import FormLabel from '../../Components/FormLabel';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -28,11 +29,9 @@ function TelephoneFormStep1({ onStepSubmit = f => f, defaultValue }) {
       onSubmit={onSubmit}>
       {({ errors, touched }) => (
         <Form className="s-form-content">
-          <p>
-            En répondant a ces quelques questions vous pourrez changer de forfait mobile de façon rapide et facile
-            <br />
-            <br />
-          </p>
+          <FormLabel>
+            En répondant a ces quelques questions vous pourrez comparer les forfaits mobiles.
+          </FormLabel>
           <InputText label="Nom" name="nom" touched={touched} errors={errors} />
           <InputText label="Prénom" name="prenom" touched={touched} errors={errors} />
           <div className="form-group row s-form-row s-form-submit-row">
@@ -42,8 +41,9 @@ function TelephoneFormStep1({ onStepSubmit = f => f, defaultValue }) {
             </div>
           </div>
         </Form>
-      )}
-    </Formik>
+      )
+      }
+    </Formik >
   );
 }
 

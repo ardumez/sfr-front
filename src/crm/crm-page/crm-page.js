@@ -1,4 +1,4 @@
-import Header from '../../components/Header';
+import Header from '../../Components/Header';
 import ProjetClientList from '../projet-client-list/projet-client-list';
 
 function CrmPage() {

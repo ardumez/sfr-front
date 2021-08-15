@@ -16,10 +16,6 @@
     font-weight: 700;
 }
 
-.s-header {
-    border-bottom: 15px solid #F45050;
-}
-
 .s-header .navbar-light .navbar-nav .active>.nav-link,
 .s-header .navbar-light .navbar-nav .nav-link.active,
 .s-header .navbar-light .navbar-nav .nav-link.show,

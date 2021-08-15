@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import dataValue from './Data';
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import InputText from './components/InputText';
+import Header from './Components/Header';
+import InputText from './Components/InputText';
 import {
   BrowserRouter as Router,
   Switch,

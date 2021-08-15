@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import InputText from '../../components/InputText';
-import Dropdown from '../../components/Dropdown';
+import Dropdown from '../../Components/Dropdown';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import {
+  Link
+} from "react-router-dom";
 
 const telephoneFormStep1Schema = Yup.object().shape({
   operateurCode: Yup.string()
@@ -45,10 +47,8 @@ function TelephoneFormStep2({ onStepSubmit = f => f, operateurs }) {
       onSubmit={onStepSubmit}>
       {({ values, errors, touched }) => (
         <Form className="s-form-content">
-          <p>
+          <p className="s-form-label">
             Vous pouvez décrire votre forfait actuelle.
-            <br />
-            <br />
           </p>
           <Dropdown label="Operateur" name="operateurCode" options={dropdownOperateursOptions} touched={touched} errors={errors} />
           {values.operateurCode &&
@@ -61,7 +61,7 @@ function TelephoneFormStep2({ onStepSubmit = f => f, operateurs }) {
           <div className="form-group row s-form-row s-form-submit-row">
             <label className="col-sm-2 col-form-label"></label>
             <div className="col-sm-10">
-              <button type="submit" className="btn btn-primary s-btn-primary col-sm-5">Mon profile</button>
+              <Link className="btn btn-primary s-btn-primary col-sm-5" to="./1">Précedent</Link>
               <button type="submit" className="btn btn-primary s-btn-primary col-sm-5 float-end">Voir les offres</button>
             </div>
           </div>

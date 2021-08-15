@@ -35,7 +35,7 @@ function TelephoneForm({ parentPath }) {
       <div className="s-block">
         <div className="sfr-card d-flex justify-content-center">
           <div className="sfr-card-content">
-            <h3>Étape {currentStep} / 3</h3>
+            <h3 className="sfr-card-title">Étape {currentStep} / 3</h3>
             <Switch>
               <Route path={`${match.url}/1`}>
                 <TelephoneFormStep1 onStepSubmit={onSubmitStep1} defaultValue={step1} />
